@@ -41,8 +41,9 @@ function App() {
       delay: -.8,
       stagger: {
         amount: 0.8
-      }
-    }).from(".case-image img", 2, {
+      }                                                    // intro-overlay is just laying on top so it needs to be hidde.
+    }).to(".intro-overlay", 0, { css: {display: "none"}})  // this is to hide intro-overlay so aplication is clickable
+    .from(".case-image img", 2, {
       scale: 1.4,
       ease: "expo.inOut",
       delay: -2,
