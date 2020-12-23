@@ -20,4 +20,4 @@ const IntroOverlay = () => {
     )
 };
 
-return default IntroOverlay;
+export default IntroOverlay;
