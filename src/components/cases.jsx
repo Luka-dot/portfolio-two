@@ -6,19 +6,19 @@ const caseStudies = [
     {id: 1, 
     subtitle: 'Subtitle One', 
     title: 'Title for project One',
-    img: 'first.jpg'
+    img: 'first'
     },
     {
         id: 2, 
         subtitle: 'Subtitle TWO', 
         title: 'Title for project TWO',
-        img: 'second.jpg'
+        img: 'second'
     },    
     {
         id: 3, 
         subtitle: 'Subtitle Three', 
         title: 'Title for project 3',
-        img: 'third.jpg'
+        img: 'third'
     }
 ];
 
@@ -36,7 +36,17 @@ const Cases = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="case"></div>
+                    {caseStudies.map((caseItem) => (
+                        <div className="case" key={caseItem.id} >
+                            <div className="case-details">
+                                <span>{caseItem.subtitle}</span>
+                                <h2>{caseItem.title}</h2>
+                            </div>
+                            <div className="case-image" >
+                                <img src={require(`../assets/${caseItem.img}.jpg`)} alt={caseItem.title} />
+                            </div>
+                        </div>
+                    )) }
                 </div>
             </div>
         </section>
