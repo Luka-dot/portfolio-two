@@ -5,9 +5,10 @@ const Navigation = () => {
 
     return (
         <nav>
+        <div className='container'>
             <div className="nav-columns">
                 <div className="nav-column">
-                    <div className="nav-links">Menu</div>
+                    <div className="nav-label">Menu</div>
                     <ul className="nav-links">
                         <li>
                             <NavLink to="/case-studies" exact >
@@ -63,6 +64,7 @@ const Navigation = () => {
                         </ul>
                     </div>
                 </div>
+            </div>
             </div>
         </nav>
     )
