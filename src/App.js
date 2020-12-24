@@ -21,6 +21,17 @@ const routes = [
   { path: "/services", name: "Services", Component: Services }
 ];
 
+function debounce(fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments)
+    }, ms)
+  }
+}
+
 function App() {
   const [dimentions, setDimentions] = useState({
     height: window.innerHeight,
@@ -36,19 +47,19 @@ function App() {
      document.documentElement.style.setProperty('--vh', `${vh}px`);
 
     // resizing listener
-    const handleResize = () => {
+    const debounceHandleResize = debounce(function handleResize() {
       setDimentions({
         height: window.innerHeight,
         width: window.innerWidth
       })
-    }
+    }, 1000)
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", debounceHandleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debounceHandleResize);
     };
-    
+
   })
 
   return (
