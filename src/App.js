@@ -64,7 +64,7 @@ function App() {
 
   return (
     <>
-      <Header /> 
+      <Header dimentions={dimentions} /> 
       {dimentions.window}
       <div className="App">
         {routes.map(({path, Component}) => (
