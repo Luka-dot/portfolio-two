@@ -43,7 +43,7 @@ function App() {
     gsap.to("body", 0, { css: {visibility: "visible"}});
 
      // calculate vh in banner.scss
-     let vh =window.innerHeight * .01;
+     let vh = dimentions.height * .01;
      document.documentElement.style.setProperty('--vh', `${vh}px`);
 
     // resizing listener

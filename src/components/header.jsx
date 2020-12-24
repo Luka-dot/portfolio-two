@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
+
+import {ReactComponent as UpArrow} from '../assets/up-arrow-circle.svg';
 
 const Header = () => {
     return (
@@ -8,9 +11,14 @@ const Header = () => {
                     <div className="logo">
                         <a href="/">LUKAS.</a>
                     </div>
-                    <div className="hamburger-menu">
-                        <span></span>
-                        <span></span>
+                    <div className="nav-toggle">
+                        <div className="hamburger-menu">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div className="hamburger-menu-close">
+                            <UpArrow />
+                        </div>
                     </div>
                 </div>
             </div>
