@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom';
 
 import './styles/App.scss';
 import Header from './components/header';
+import Navigation from './components/navigation';
 
 import About from './pages/about';
 import Approach from './pages/aproach';
@@ -41,6 +42,7 @@ function App() {
           </Route>
         ))}
       </div>
+      <Navigation />
     </>
   );
 }
