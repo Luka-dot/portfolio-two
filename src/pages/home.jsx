@@ -47,11 +47,12 @@ const HomePage = () => {
 
   useEffect(() => {
     // gsap on complete
-    homePageAnimation(completeAnimation);
+  //  homePageAnimation(completeAnimation);
+  setAnimationComplete(true)     // to avoid animation in development
   }, [])
 
     return (
-        <>
+        <>  
             {animationComplete === false ? <IntroOverlay /> : "" }
             <Banner />
             <Cases />

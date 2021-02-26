@@ -6,15 +6,18 @@ import {ReactComponent as UpArrow} from '../assets/up-arrow-circle.svg';
 
 let tl = gsap.timeline();
 
-const Header = ({dimentions}) => {
+const Header = ({history, dimentions}) => {
     const [menuState, setMenuState] = useState({menuOpen: false});
 
     useEffect(() => {
-        if(menuState.menuOpen === true) {
-            gsap.to('nav', {css: {display: "block"}});
-            gsap.to('body', {css: {display: "hidden"}});
+        history.listen(() => {
+            setMenuState({menuOpen: false})
+        })
 
-            tl.to('.App', {
+        // animation open IF close
+        if(menuState.menuOpen === true) {
+            tl.to('body', {duration: 0.01, css: {display: "hidden"}})
+            .to('.App', {
                 duration: 1,
                 y: dimentions.width <= 654 ? "70vh" : dimentions.height / 2,
                 ease: "expo.inOut"
@@ -45,7 +48,7 @@ const Header = ({dimentions}) => {
                     strokeDashoffset: 40,
                     strokeDasharray: 18
                 }
-            }).to('#Circle', {
+            }).to('#circle', {
                 duration: 0.4,
                 delay: -0.8,
                 css: {
@@ -59,7 +62,54 @@ const Header = ({dimentions}) => {
                 }
             })
         } else {
-            
+            tl.to('.App', {
+                duration: 1,
+                y: 0,
+                ease: "expo.inOut"
+            }).to('#circle', {
+                duration: 0.6,
+                delay: -0.6,
+                css: {
+                    strokeDashoffset: -193,
+                    strokeDasharray: 227
+                }
+            }).to('#Path_1', {
+                duration: 0.4,
+                delay: -0.6,
+                css: {
+                    strokeDashoffset: 10,
+                    strokeDasharray: 10
+                }
+            }).to('#Path_2', {
+                duration: 0.4,
+                delay: -0.6,
+                css: {
+                    strokeDashoffset: 10,
+                    strokeDasharray: 10
+                }
+            }).to('#Line_1', {
+                duration: 0.4,
+                delay: -0.6,
+                css: {
+                    strokeDashoffset: 40,
+                    strokeDasharray: 40
+                }
+            }).to('.hamburger-menu span', {
+                duration: 0.6,
+                delay: -0.6,
+                scale: 1,
+                transformOrigin: "50% 0%",
+                ease: "expo.inOut"
+            }).to('.hamburger-menu-close', {
+                duration: 0,
+                css: {
+                    display: "none"
+                }
+            }).to('body', {
+                css: {
+                    overflow: "auto"
+                }
+            })
         }
     }, [menuState.menuOpen])
 
@@ -68,18 +118,17 @@ const Header = ({dimentions}) => {
             <div className="container">
                 <div className="row v-center space-between">
                     <div className="logo">
-                        <a href="/">LUKAS.</a>
+                        <NavLink to="/" exact>LUKAS KOTRC</NavLink>
                     </div>
                     <div 
-                        onClick={() => setMenuState({menuOpen: true})} 
+                        onClick={() => setMenuState({menuOpen: !menuState.menuOpen})} 
                         className="nav-toggle">
                         <div className="hamburger-menu">
                             <span></span>
                             <span></span>
+                            <span></span>
                         </div>
-                        <div
-                        onClick={() => setMenuState({menuOpen: false})} 
-                            className="hamburger-menu-close">
+                        <div className="hamburger-menu-close">
                             <UpArrow />
                         </div>
                     </div>
@@ -89,4 +138,4 @@ const Header = ({dimentions}) => {
     )
 };
 
-export default Header;
+export default withRouter(Header);

@@ -11,23 +11,23 @@ const Navigation = () => {
                     <div className="nav-label">Menu</div>
                     <ul className="nav-links">
                         <li>
-                            <NavLink to="/case-studies" exact >
-                                Case Studies
+                            <NavLink to="/my-projects" exact >
+                                My Projects
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/approach" exact >
-                                Aproach
+                            <NavLink to="/skils" exact >
+                                Skills
                             </NavLink>                         
                         </li>
                         <li>
                             <NavLink to="/services" exact >
-                                Services
+                                Resume
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to="/about" exact >
-                                About us
+                                Get in Touch
                             </NavLink>
                         </li>
                     </ul>

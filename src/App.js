@@ -7,9 +7,9 @@ import Header from './components/header';
 import Navigation from './components/navigation';
 
 import About from './pages/about';
-import Approach from './pages/aproach';
+import MyProjects from './pages/myProjects';
 import CaseStudies from './pages/caseStudies';
-import Services from './pages/services';
+import Skills from './pages/skills';
 import HomePage from './pages/home';
 
 // routes
@@ -17,8 +17,8 @@ const routes = [
   { path: "/", name: "Home", Component: HomePage },
   { path: "/case-studies", name: "CaseStudies", Component: CaseStudies },
   { path: "/about", name: "About", Component: About },
-  { path: "/approach", name: "Approach", Component: Approach },
-  { path: "/services", name: "Services", Component: Services }
+  { path: "/my-projects", name: "my-projects", Component: MyProjects },
+  { path: "/skills", name: "skills", Component: Skills }
 ];
 
 function debounce(fn, ms) {
